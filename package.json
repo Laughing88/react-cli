@@ -1,0 +1,55 @@
+{
+  "name": "react-cli",
+  "version": "1.0.0",
+  "description": "react项目搭建模板",
+  "main": "main.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=production webpack --config webpack/webpack.test.conf.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laughing88/react-cli.git"
+  },
+  "author": "Laughing_thg@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laughing88/react-cli/issues"
+  },
+  "homepage": "https://github.com/Laughing88/react-cli#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "axios": "^0.21.1",
+    "babel-preset-es2015": "^6.24.1",
+    "cross-env": "^7.0.3",
+    "jweixin-npm": "^1.6.1",
+    "less": "^4.1.1",
+    "less-loader": "^8.1.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "protractor": "^7.0.0",
+    "px2rem-loader": "^0.1.9",
+    "qs": "^6.10.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.0",
+    "swiper": "^5.4.5",
+    "uglifyjs-webpack-plugin": "^2.2.0"
+  }
+}
