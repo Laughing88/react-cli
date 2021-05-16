@@ -4,7 +4,6 @@
   "description": "react项目搭建模板",
   "main": "main.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=production webpack --config webpack/webpack.test.conf.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.conf.js"
   },
