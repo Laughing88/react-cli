@@ -1,5 +1,5 @@
 const {merge} = require('webpack-merge');
-const base = require('./webpack.base.conf');
+const base = require('../webpack.base.conf');
 
 const path = require('path');
 const OptimizeCss = require('optimize-css-assets-webpack-plugin');

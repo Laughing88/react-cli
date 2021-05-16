@@ -2,7 +2,7 @@
 //引入webpack-merge插件进行合并
 const {merge} = require('webpack-merge');
 //引入webpack.base.conf.js文件
-const base = require('./webpack.base.conf');
+const base = require('../webpack.base.conf');
 //引入webpack
 const webpack = require('webpack');
 //进行合并，将webpack.base.conf.js中的配置合并到这
