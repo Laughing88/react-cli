@@ -10,12 +10,17 @@ module.exports = merge(base, {
    //模块参数
     mode: 'development',
     devServer: {
-        host: '192.168.0.100',
+        host: 'localhost',
         port: '3000',
         inline: true,
         //historyApiFallback: true,//在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
         hot: true,//允许热加载
         open:true,
+		headers: {
+		      'Access-Control-Allow-Origin': '*'
+		    },
+		hotOnly: false,
+		disableHostCheck: true
     },
 //启用source-map方便调试
     devtool: 'source-map',
