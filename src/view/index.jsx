@@ -1,51 +1,50 @@
 import React from 'react';
-import Swiper from 'swiper';
-import 'swiper/css/swiper.css';
 
 import { banner } from '../js/request/api';
 import { shareLink } from '../js/public.js';
 import mineImg from '../assets/img/mine.png';
 import '../assets/less/index.less';
 
+import ReactSwiper from 'reactjs-swiper';
+
 export default class Index extends React.Component{
 	
 	constructor(props){
 		super(props);
 		this.state = {
-			swiper: {},
-			carousel: []
+			swiper: [
+				{
+					image: require('../assets/img/banner01.png').default
+				},
+				{
+					image: require('../assets/img/banner02.png').default
+				},
+				{
+					image: require('../assets/img/banner03.png').default
+				},
+				{
+					image: require('../assets/img/banner04.png').default
+				}
+			],
 		};
 
 		this.goLogin = this.goLogin.bind(this);
 	};
 	
 	componentDidMount(){
-		setTimeout(()=>{
-			new Swiper ('.swiper-container', {
-					direction: 'horizontal', // 垂直切换选项
-					// 如果需要分页器
-					//pagination: {
-					//el: '.swiper-pagination',
-					//clickable: true //允许分页点击跳转
-				//},
-				//自动轮播
-				autoplay: {
-					disableOnInteraction: false,
-					delay: 1000,
-				},
-			})
-		},1000)
 		  
 		let that = this;
-			shareLink();
-			that.banner();
-	};
-
+			//shareLink();
+			// banner();
+	}
+	
 	banner(){
 		let that = this;
 		banner({
 			showIndex:16
 		}).then(res=>{
+			console.log(res.data);
+			
 			that.setState({
 				carousel : res.data
 			})
@@ -60,6 +59,11 @@ export default class Index extends React.Component{
 	};
 	
 	render(){
+		const swiperOptions = {
+		    preloadImages: true,
+		    autoplay: 2500,
+		    autoplayDisableOnInteraction: false
+		  };
 		return(
 			<div className="main">
 				<div className="login-top">
@@ -73,18 +77,7 @@ export default class Index extends React.Component{
 						</ul>
 					</header>
 				</div>
-				<div className="swiper-container">
-					<div className="swiper-wrapper">
-						{
-							this.state.carousel.map((item,index)=>{
-								return <div className="swiper-slide" key={index}>
-											<img src={item.icon} className="swiperImg"/>
-									   </div>
-							})
-						}
-						{/* <div className="swiper-pagination"></div> */}
-					</div>
-				</div>
+				<ReactSwiper swiperOptions={swiperOptions} showPagination items={this.state.swiper} className="swiperImg"/>
 			</div>
 		)
 	}

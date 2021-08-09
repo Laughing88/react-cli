@@ -1,6 +1,7 @@
 import { get, post } from './http';
 
 let api = '';
+
 if(process.env.NODE_ENV !== 'production'){
     api = 'http://mall.fhzhny.com/api'; //开发环境
 }else{
