@@ -10,7 +10,7 @@ module.exports = merge(base, {
    //模块参数
     mode: 'development',
     devServer: {
-        host: 'localhost',
+        host: '127.0.0.1',
         port: '3000',
         inline: true,
         //historyApiFallback: true,//在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
