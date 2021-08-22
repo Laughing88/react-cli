@@ -1,7 +1,8 @@
 import React from 'react';
 
+import Loading from '../components/loading';
 import { banner } from '../js/request/api';
-import { shareLink } from '../js/public.js';
+import { shareLink } from '../js/public';
 import mineImg from '../assets/img/mine.png';
 import '../assets/less/index.less';
 
@@ -78,6 +79,7 @@ export default class Index extends React.Component{
 					</header>
 				</div>
 				<ReactSwiper swiperOptions={swiperOptions} showPagination items={this.state.swiper} className="swiperImg"/>
+				<Loading/>
 			</div>
 		)
 	}
