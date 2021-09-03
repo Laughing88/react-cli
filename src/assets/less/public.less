@@ -1,41 +1,41 @@
 @import '//at.alicdn.com/t/font_1575167_fhkjha67w17.css';
 
 .loading{
-	width: 30px; /*先将loading区域变成正方形*/
+	width: 30px;
 	height: 30px;
-	display: inline-block; /*将loading区域变成行内元素，防止旋转的时候，100%宽度都在旋转*/
-	border: 3px solid #f3f3f3; /*设置四周边框大小，并将颜色设置为浅白色*/
-	border-top: 3px solid red; /*将上边框颜色设置为红色高亮，以便旋转的时候能够看到旋转的效果*/
-	border-radius: 50%; /*将边框和内容区域都变成圆形*/
+	display: inline-block;
+	border: 3px solid #f3f3f3;
+	border-top: 3px solid red;
+	border-radius: 50%;
 	animation: loading-360 0.8s infinite linear;
 }
 
 @keyframes loading-360 {
 	0% {
-		transform: rotate(0deg); /*动画起始的时候旋转了0度*/
+		transform: rotate(0deg);
 	}
 	100% {
-		transform: rotate(360deg); /*动画结束的时候旋转了360度*/
+		transform: rotate(360deg);
 	}
 }
 
 .icon-loading {
-	display: inline-block; /*需要设置为行内块元素动画才会生效*/
+	display: inline-block;
 	font-size: 30px; 
 	color: grey;
 	animation: rotating 2s infinite linear;
 }
 
 .icon-loading::before {
-	content: "\e66d"; /*显示字体图内容，值为\unicode*/
+	content: "\e66d";
 }
 
 @keyframes rotating {
 	0% {
-		transform: rotate(0deg) /*动画起始位置为旋转0度*/
+		transform: rotate(0deg)
 	}
 
 	to {
-		transform: rotate(1turn) /*动画结束位置为旋转1圈*/
+		transform: rotate(1turn)
 	}
 }
