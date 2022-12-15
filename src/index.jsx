@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.less";
-import App from "./App.jsx";
+import Home from "./home/home.jsx";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Home />.
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -27,7 +27,7 @@ const baseConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'react app',
+            title: '首页',
             template: resolvePath('../public/index.html'),
             filename: 'index.html',
         }),
