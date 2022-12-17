@@ -1,5 +1,6 @@
 import "./home.less";
 import React from "react";
+import ReactDOM from "react-dom";
 
 class Home extends React.Component{
 
@@ -11,11 +12,29 @@ class Home extends React.Component{
         isHot: false,
         username: '',
         password: '',
+        opacity: 1,
+    }
+
+    //组件挂载页面之后
+    componentDidMount() {
+        this.timer = setInterval(()=>{
+            let {opacity} = this.state;
+            opacity -= 0.1;
+            if(opacity<=0) opacity = 1
+            this.setState({
+                opacity
+            })
+        },200)
+    }
+
+    //组件将要卸载时调用
+    componentWillUnmount() {
+        clearInterval(this.timer)
     }
 
     render() {
         const {name, age, sex} = this.props;
-        const {isHot  } = this.state;
+        const {isHot} = this.state;
         return(
             <div>
                 <h1 onClick={this.changeWeather}>今天天气很{isHot?'炎热':'凉爽'}</h1>
@@ -39,12 +58,24 @@ class Home extends React.Component{
                     <button>登录</button>
                 </form>
 
-                {/*受控组件 推荐使用*/}
+                {/*受控组件柯里化 推荐使用*/}
+                {/*<form action="" onSubmit={this.handleControlledSubmit}>*/}
+                {/*    <input type="text" name="username" onChange={this.saveFromData('username')}/>*/}
+                {/*    <input type="password" name="password" onChange={this.saveFromData('password')}/>*/}
+                {/*    <button>登录</button>*/}
+                {/*</form>*/}
+
+                {/*受控组件非柯里化 推荐使用*/}
                 <form action="" onSubmit={this.handleControlledSubmit}>
-                    <input type="text" name="username" onChange={this.saveFromData('username')}/>
-                    <input type="password" name="password" onChange={this.saveFromData('password')}/>
+                    <input type="text" name="username" onChange={event =>this.saveFromData('username',event)}/>
+                    <input type="password" name="password" onChange={event =>  this.saveFromData('password',event)}/>
                     <button>登录</button>
                 </form>
+
+                <div>
+                    <h1 style={{opacity: this.state.opacity}}>学不会React怎么办？</h1>
+                    <button onClick={this.death}>不活了</button>
+                </div>
             </div>
         )
     }
@@ -73,13 +104,20 @@ class Home extends React.Component{
         alert(`你输入的用户名是：${this.userName.current.value},你输入的密码是：${this.password.current.value}`)
     }
 
-    //保存表单数据到状态
-    saveFromData = (dataType)=>{
-        return (event)=>{
-            this.setState({
-                [dataType]: event.target.value,
-            })
-        }
+    //保存表单数据到状态（柯里化）
+    // saveFromData = (dataType)=>{
+    //     return(event)=>{
+    //         this.setState({
+    //             [dataType]: event.target.value,
+    //         })
+    //     }
+    // }
+
+    //保存表单数据到状态（非柯里化）
+    saveFromData = (dataType,event)=>{
+        this.setState({
+            [dataType]: event.target.value,
+        })
     }
 
     //受控组件提交事件 推荐使用
@@ -87,6 +125,10 @@ class Home extends React.Component{
         //阻止页面刷新
         event.preventDefault();
         alert(`你输入的用户名是：${this.state.username},你输入的密码是：${this.state.password}`)
+    }
+
+    death = ()=>{
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'))
     }
 }
 
