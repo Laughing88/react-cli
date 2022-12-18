@@ -7,12 +7,25 @@ class Home extends React.Component{
     clickValue = React.createRef();
     userName = React.createRef();
     password = React.createRef();
+    list = React.createRef();
 
     state = {
         isHot: false,
         username: '',
         password: '',
         opacity: 1,
+        newsArr:[],
+    }
+
+    //若state的值在任何时候都取决于props，那么可以使用getDerivedStateFromProps
+    // static getDerivedStateFromProps(state,props){
+    //     console.log('getDerivedStateFromProps',props,state);
+    //     return null;
+    // }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log(this.list);
+        return this.list.current.scrollHeight;
     }
 
     //组件挂载页面之后
@@ -25,6 +38,20 @@ class Home extends React.Component{
                 opacity
             })
         },200)
+
+        setInterval(()=>{
+            const {newsArr} = this.state;
+            const news = '新闻'+(newsArr.length+1);
+            this.setState({
+                newsArr: [news,...newsArr]
+            })
+        },1000)
+    }
+
+    //组件更新完成
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(snapshot);
+        this.list.current.scrollTop += this.list.current.scrollHeight - snapshot;
     }
 
     //组件将要卸载时调用
@@ -75,6 +102,13 @@ class Home extends React.Component{
                 <div>
                     <h1 style={{opacity: this.state.opacity}}>学不会React怎么办？</h1>
                     <button onClick={this.death}>不活了</button>
+                </div>
+                <div className="list" ref={this.list}>
+                    {
+                        this.state.newsArr.map((item,index)=>{
+                            return  <div className="news" key={index}>{item}</div>
+                        })
+                    }
                 </div>
             </div>
         )
