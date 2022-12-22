@@ -24,7 +24,6 @@ class Home extends React.Component{
     // }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log(this.list);
         return this.list.current.scrollHeight;
     }
 
@@ -50,11 +49,10 @@ class Home extends React.Component{
 
     //组件更新完成
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(snapshot);
         this.list.current.scrollTop += this.list.current.scrollHeight - snapshot;
     }
 
-    //组件将要卸载时调用
+    //组件将要卸载时调用9***
     componentWillUnmount() {
         clearInterval(this.timer)
     }

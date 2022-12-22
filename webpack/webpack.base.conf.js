@@ -10,6 +10,9 @@ const baseConfig = {
         path: resolvePath('../dist'),
         filename: '[name].bundle.js',
     },
+    resolve:{
+      extensions:['.js','.jsx','ts','tsx'],
+    },
     module: {
         rules: [{
             test: /\.css$/,
