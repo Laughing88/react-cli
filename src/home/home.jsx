@@ -2,6 +2,9 @@ import "./home.less";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import List from "../components/list/list";
+import Search from "../components/search/search";
+
 class Home extends React.Component{
 
     clickValue = React.createRef();
@@ -108,6 +111,10 @@ class Home extends React.Component{
                         })
                     }
                 </div>
+
+                <List/>
+                <Search/>
+
             </div>
         )
     }

@@ -6,8 +6,8 @@ import Request from "./request/request";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/*<Home name = "jerry" age = {18} sex = "女"/>.*/}
-      <Request/>
+    <Home name = "jerry" age = {18} sex = "女"/>.
+    {/*  <Request/>*/}
   </React.StrictMode>,
   document.getElementById("root")
 );
