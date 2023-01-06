@@ -5,7 +5,6 @@ const {
     baseConfig,
     resolvePath
 } = require('./webpack.base.conf');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin'); // 错误提示
 
 
 module.exports = merge(baseConfig, {
@@ -17,7 +16,5 @@ module.exports = merge(baseConfig, {
         hot: true,
         open: true,
     },
-    plugins: [
-        new FriendlyErrorsWebpackPlugin()
-    ]
+    plugins: []
 })

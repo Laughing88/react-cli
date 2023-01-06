@@ -64,7 +64,7 @@ class Home extends React.Component{
         const {name, age, sex} = this.props;
         const {isHot} = this.state;
         return(
-            <div>
+            <div className="content">
                 <h1 onClick={this.changeWeather}>今天天气很{isHot?'炎热':'凉爽'}</h1>
 
                 {/*props实现*/}
@@ -113,7 +113,7 @@ class Home extends React.Component{
                 </div>
 
                 <List  click = {this.onClick}/>
-                <Search click = {this.handelSearch}/>
+                <Search/>
 
             </div>
         )
@@ -170,14 +170,11 @@ class Home extends React.Component{
         ReactDOM.unmountComponentAtNode(document.getElementById('root'));
     }
 
+    // 父子组件传值
     onClick = (value) => {
         console.log(value);
     }
 
-    // 父子组件传值
-    handelSearch = (value)=>{
-        console.log(value);
-    }
 }
 
 export default Home;
