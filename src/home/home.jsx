@@ -31,7 +31,7 @@ class Home extends React.Component{
     }
 
     //组件挂载页面之后
-    componentDidMount() {
+    /*componentDidMount() {
         this.timer = setInterval(()=>{
             let {opacity} = this.state;
             opacity -= 0.1;
@@ -48,7 +48,7 @@ class Home extends React.Component{
                 newsArr: [news,...newsArr]
             })
         },1000)
-    }
+    }*/
 
     //组件更新完成
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -112,8 +112,8 @@ class Home extends React.Component{
                     }
                 </div>
 
-                <List/>
-                <Search/>
+                <List  click = {this.onClick}/>
+                <Search click = {this.handelSearch}/>
 
             </div>
         )
@@ -163,11 +163,19 @@ class Home extends React.Component{
     handleControlledSubmit = (event)=>{
         //阻止页面刷新
         event.preventDefault();
-        alert(`你输入的用户名是：${this.state.username},你输入的密码是：${this.state.password}`)
+        alert(`你输入的用户名是：${this.state.username},你输入的密码是：${this.state.password}`);
     }
 
     death = ()=>{
-        ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+    }
+
+    onClick = (value) => {
+        console.log(value);
+    }
+
+    handelSearch = (value)=>{
+        console.log(value);
     }
 }
 
