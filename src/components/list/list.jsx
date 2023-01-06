@@ -15,6 +15,7 @@ class List extends Component {
         })
     }
 
+    // 父子组件传值
     handleClick= ()=>{
         this.props.click(this.state.obj);
     }

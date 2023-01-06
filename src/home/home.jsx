@@ -174,6 +174,7 @@ class Home extends React.Component{
         console.log(value);
     }
 
+    // 父子组件传值
     handelSearch = (value)=>{
         console.log(value);
     }
