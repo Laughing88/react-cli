@@ -1,6 +1,7 @@
 import "./home.less";
 import React from "react";
 import ReactDOM from "react-dom";
+import {Link} from "react-router-dom";
 
 import List from "../components/list/list";
 import Search from "../components/search/search";
@@ -101,7 +102,9 @@ class Home extends React.Component{
                 </form>
 
                 <div>
-                    <h1 style={{opacity: this.state.opacity}}>学不会React怎么办？</h1>
+                    <Link to="/about">
+                        <h1 style={{opacity: this.state.opacity}}>学不会React怎么办？</h1>
+                    </Link>
                     <button onClick={this.death}>不活了</button>
                 </div>
                 <div className="list" ref={this.list}>
